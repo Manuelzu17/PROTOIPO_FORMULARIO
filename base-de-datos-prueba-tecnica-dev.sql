@@ -1,11 +1,12 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5ubuntu0.5
+-- XAMPP 7.4.29-1
+-- version 20.04 ubuntu
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 21-09-2021 a las 19:04:48
+-- Tiempo de generación: 21-09-2022 a las 15:47:48
 -- Versión del servidor: 5.7.35-0ubuntu0.18.04.1
--- Versión de PHP: 7.3.29-1+ubuntu18.04.1+deb.sury.org+1
+-- Versión de PHP: 7.4.29+ubuntu20.04.1+deb.sury.org+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";

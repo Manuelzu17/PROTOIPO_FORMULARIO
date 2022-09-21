@@ -12,7 +12,7 @@
 
             if (empty($_POST["boletin"])){
                 
-                $boletin=0;
+                $boletin=2;
                      
 
             }else {

@@ -1,6 +1,7 @@
 # PROTOIPO_FORMULARIO
 
 Para ejecutar la aplicación de manera local se necesita realizar los siguientes pasos.
+P.D. La aplicacion ya tiene instalado bootstrap 5.
 
 #ADVERTENCIA: TODO ESTA REALIZADO EN EL SISTEMA OPERATIVO UBUNTU 20.04 
 

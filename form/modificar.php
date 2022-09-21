@@ -56,7 +56,7 @@ $sql = $conexion->query("SELECT * FROM empleado WHERE id=$id");
                         ?>
                                 <div class="mb-3">
                                     <label class="form-label">Nombre Completo *</label>
-                                    <input type="user" name="nombre" class="form-control" value="<?= $datos->nombre ?>"
+                                    <input type="user" name="nombre" class="form-control" onkeypress="return check(event)" value="<?= $datos->nombre ?>"
                                         placeholder="Nombre Completo">
                                 </div>
                         </div>
@@ -114,6 +114,22 @@ $sql = $conexion->query("SELECT * FROM empleado WHERE id=$id");
     </div>
 
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        function check(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla == 8) {
+        return true;
+    }
+
+    // Patrón de entrada, en este caso solo acepta letras
+    patron = /[A-Za-z]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+    </script>
 
 </body>
 

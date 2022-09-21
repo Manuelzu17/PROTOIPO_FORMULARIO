@@ -54,7 +54,8 @@ CREATE TABLE IF NOT EXISTS `empleado` (
   `email` varchar(255) NOT NULL,
   `sexo` char(1) NOT NULL,
   `area_id` int(11) NOT NULL,
-  `boletin` int(11) DEFAULT NULL,
+  `boletin_id` int(11) DEFAULT NULL,
+  `roles_id` int(11) DEFAULT NULL,
   `descripcion` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `area_id` (`area_id`)
@@ -64,9 +65,9 @@ CREATE TABLE IF NOT EXISTS `empleado` (
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id`, `nombre`, `email`, `sexo`, `area_id`, `boletin`, `descripcion`) VALUES
-(3, 'Pedro Pérez', 'pperez@example.co', 'M', 5, 1, 'Hola mundo'),
-(4, 'Amalia Bayona', 'abayona@example.co', 'F', 8, 0, 'Para contactar a Amalia Bayona, puede escribir al correo electrónico abayona@example.co');
+INSERT INTO `empleado` (`id`, `nombre`, `email`, `sexo`, `area_id`, `boletin_id`, `roles_id`, `descripcion`) VALUES
+(3, 'Pedro Pérez', 'pperez@example.co', 'M', 5, 1, 1, 'Hola mundo'),
+(4, 'Amalia Bayona', 'abayona@example.co', 'F', 8, 2, 2, 'Para contactar a Amalia Bayona, puede escribir al correo electrónico abayona@example.co');
 
 -- --------------------------------------------------------
 
@@ -124,12 +125,37 @@ INSERT INTO `roles` (`id`, `nombre`) VALUES
 -- Restricciones para tablas volcadas
 --
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `boletin`
+--
+
+DROP TABLE IF EXISTS `boletin`;
+CREATE TABLE IF NOT EXISTS `boletin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `boletin`
+--
+
+INSERT INTO `boletin` (`id`, `estado`) VALUES
+(1, 'SI'),
+(2, 'NO');
+
+
+-- --------------------------------------------------------
+
 --
 -- Filtros para la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`area_id`) REFERENCES `areas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `empleado_ibfk_2` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `empleado_ibfk_3` FOREIGN KEY (`boletin_id`) REFERENCES `boletin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 --
 -- Filtros para la tabla `empleado_rol`
 --
